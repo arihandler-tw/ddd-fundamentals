@@ -8,12 +8,14 @@ import java.util.stream.Collectors;
 
 public class Cart {
   private final UUID id;
-  private List<Item> items = new ArrayList<>();
+  private List<Item> items;
 
-  private final RemovedProducts removedProducts = new RemovedProducts();
+  private final RemovedProducts removedProducts;
 
   public Cart() {
     id = UUID.randomUUID();
+    items = new ArrayList<>();
+    removedProducts = new RemovedProducts();
   }
 
   public void add(Item item) {
@@ -22,13 +24,6 @@ public class Cart {
 
   public List<Item> getItems() {
     return items;
-  }
-
-  @Override
-  public String toString() {
-    return "Cart{" +
-        "items=" + items +
-        '}';
   }
 
 
@@ -47,6 +42,13 @@ public class Cart {
     if (o == null || getClass() != o.getClass()) return false;
     Cart cart = (Cart) o;
     return Objects.equals(id, cart.id);
+  }
+
+  @Override
+  public String toString() {
+    return "Cart{" +
+        "items=" + items +
+        '}';
   }
 
   @Override

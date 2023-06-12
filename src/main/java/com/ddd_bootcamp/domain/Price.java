@@ -11,6 +11,10 @@ public class Price {
     this.currency = java.util.Currency.getInstance("USD");
   }
 
+  public float getAmount() {
+    return amount;
+  }
+
   @Override
   public String toString() {
     return "Price{" +
@@ -18,4 +22,6 @@ public class Price {
         ", currency=" + currency +
         '}';
   }
+
+
 }
