@@ -18,11 +18,17 @@ public class Application {
         Item applePencilItem = new Item(applePencil, 2);
         cart.add(applePencilItem);
 
+        cart.remove(headphone);
+        cart.remove(applePencil);
+
         System.out.println("--------------------------------------------------------");
         System.out.println("Cart = " + cart);
         List<Item> items = cart.getItems();
         System.out.println("--------------------------------------------------------");
         System.out.println("items = " + items);
+        System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
+        System.out.println("removedProducts = " + cart.getRemovedProducts().getProducts());
         System.out.println("--------------------------------------------------------");
     }
 }
