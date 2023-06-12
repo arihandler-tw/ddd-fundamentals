@@ -9,15 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class CartTest {
 
     @Test
-    void shouldAddProductToCart() {
+    void shouldAddItemToCart() {
         Cart cart = new Cart();
         Product product = new Product("Some test product");
-        cart.add(product);
+        Item item = new Item(product, 1);
+        cart.add(item);
 
-        List<Product> actual = cart.getProducts();
+        List<Item> actual = cart.getItems();
 
         assertEquals(1, actual.size());
-        assertEquals("Some test product", actual.get(0).getName());
+        assertEquals("Some test product", actual.get(0).getProduct().getName());
 
     }
 }
