@@ -1,4 +1,6 @@
-package com.ddd_bootcamp.domain;
+package com.ddd_bootcamp.domain.domain_service;
+
+import com.ddd_bootcamp.domain.Price;
 
 import java.util.HashMap;
 import java.util.Map;

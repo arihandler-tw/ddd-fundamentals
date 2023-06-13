@@ -11,11 +11,13 @@ public class Cart {
   private List<Item> items;
 
   private final RemovedProducts removedProducts;
+  private boolean checkedOut;
 
   public Cart() {
     id = UUID.randomUUID();
     items = new ArrayList<>();
     removedProducts = new RemovedProducts();
+    checkedOut = false;
   }
 
   public void add(Item item) {
@@ -54,5 +56,16 @@ public class Cart {
   @Override
   public int hashCode() {
     return Objects.hash(id);
+  }
+
+  public List<Product> checkOut() {
+    checkedOut = true;
+    return items.stream().flatMap(item -> {
+      List<Product> flattenProducts = new ArrayList<>();
+      for (int j = 0; j < item.getQuantity(); j++) {
+        flattenProducts.add(item.getProduct());
+      }
+      return flattenProducts.stream();
+    }).toList();
   }
 }
