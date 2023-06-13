@@ -15,6 +15,10 @@ public class Price {
     return amount;
   }
 
+  public Price reduceByPercent(int percentage) {
+    return new Price(amount - amount / percentage);
+  }
+
   @Override
   public String toString() {
     return "Price{" +
