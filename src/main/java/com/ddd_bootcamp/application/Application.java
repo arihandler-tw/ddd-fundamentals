@@ -5,7 +5,9 @@ import com.ddd_bootcamp.domain.Item;
 import com.ddd_bootcamp.domain.Price;
 import com.ddd_bootcamp.domain.Product;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,8 +17,15 @@ public class Application {
         Item headphoneItem = new Item(headphone,1);
         cart.add(headphoneItem);
 
-        Product applePencil = new Product("Apple Pencil", new Price(2.0F));
+        Map<String, Price> competitorPrices = new HashMap<>();
+        competitorPrices.put("Apple Pencil", new Price(1.0F));
+
+        Price productPrice = competitorPrices.getOrDefault("Apple Pencil", new Price(1.0F));
+
+        Product applePencil = new Product("Apple Pencil", productPrice);
         Item applePencilItem = new Item(applePencil, 2);
+
+
         cart.add(applePencilItem);
 
         cart.remove(headphone);
